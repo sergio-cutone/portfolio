@@ -41,6 +41,7 @@ const Layout = ({ children }) => {
         ))}
       </header>
       <main>{children}</main>
+      <footer className="bg-black">2021 Sergio Cutone</footer>
     </>
   )
 }
