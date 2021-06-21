@@ -1,5 +1,12 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
+import SimpleReactLightbox from "simple-react-lightbox"
+import Header from "../Components/Header"
+import Footer from "../Components/Footer"
+import "@fontsource/montserrat"
+import "@fontsource/montserrat/700.css"
+import "@fontsource/open-sans"
+import "@fontsource/open-sans/700.css"
 
 const Layout = ({ children }) => {
   const menu = useStaticQuery(graphql`
@@ -29,20 +36,15 @@ const Layout = ({ children }) => {
     url: item.url.replace(url, ""),
   }))
   return (
-    <>
-      <header>
-        <Link to="/" className="home">
-          {title}
-        </Link>
-        {items.map(item => (
-          <Link key={item.url} to={item.url}>
-            {item.label}
-          </Link>
-        ))}
-      </header>
-      <main>{children}</main>
-      <footer className="bg-black">2021 Sergio Cutone</footer>
-    </>
+    <div className="max-w-screen-xl mx-auto p-3 mt-24 sm:mt-28">
+      <Header title={title} items={items} />
+      <SimpleReactLightbox>
+        <main className="max-w-screen-xl mx-auto leading-8 text-md sm:text-lg sm:leading-10 px-4 py-12">
+          {children}
+        </main>
+      </SimpleReactLightbox>
+      <Footer />
+    </div>
   )
 }
 

@@ -14,18 +14,43 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@fontsource/montserrat": "^4.2.2",
+    "@fontsource/open-sans": "^4.2.2",
+    "@fontsource/playfair-display": "^4.2.2",
+    "@fontsource/roboto": "^4.2.3",
+    "@heroicons/react": "^1.0.1",
     "@wordpress/block-library": "^2.29.2",
-    "autoprefixer": "^10.2.5",
+    "assert": "^2.0.0",
+    "buffer": "^6.0.3",
+    "crypto-es": "^1.2.7",
     "gatsby": "^3.3.1",
-    "gatsby-plugin-postcss": "^4.3.0",
-    "gatsby-source-graphql": "^3.3.0",
-    "postcss": "^8.2.10",
+    "gatsby-source-graphql": "^3.4.0",
+    "imagekit": "^3.1.2",
+    "imagekitio-react": "^1.0.9",
+    "node-polyfill-webpack-plugin": "^1.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "tailwindcss": "^2.1.1"
+    "simple-react-lightbox": "^3.6.6",
+    "stream": "0.0.2"
   },
   "devDependencies": {
-    "prettier": "2.2.1"
+    "autoprefixer": "^10.2.5",
+    "gatsby-plugin-postcss": "^4.3.0",
+    "postcss": "^8.2.12",
+    "prettier": "2.2.1",
+    "tailwindcss": "^2.1.1"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false,
+    "crypto": false,
+    "stream": false,
+    "http": false,
+    "tls": false,
+    "zlib": false,
+    "https": false,
+    "net": false
   },
   "repository": {
     "type": "git",

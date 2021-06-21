@@ -39,11 +39,26 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   `)
 
+  const webapps_result = await graphql(`
+    {
+      wpgraphql {
+        webapps {
+          nodes {
+            id
+            uri
+          }
+        }
+      }
+    }
+  `)
+
   // pull the page data out of the query response
   const pages = result.data.wpgraphql.pages.nodes
 
   // loop through WordPress pages and create a Gatsby page for each one
   pages.forEach(page => {
+    if (page.uri === "/home/") page.uri = "/"
+
     actions.createPage({
       path: page.uri,
       component: require.resolve("./src/templates/page-template.js"),
@@ -70,13 +85,27 @@ exports.createPages = async ({ actions, graphql }) => {
   // pull the website data out of the query response
   const websites = website_result.data.wpgraphql.websites.nodes
 
-  // loop through WordPress kiosk and create a Gatsby page for each one
+  // loop through WordPress website and create a Gatsby page for each one
   websites.forEach(website => {
     actions.createPage({
       path: website.uri,
       component: require.resolve("./src/templates/website-template.js"),
       context: {
         id: website.id,
+      },
+    })
+  })
+
+  // pull the web app data out of the query response
+  const webapps = webapps_result.data.wpgraphql.webapps.nodes
+
+  // loop through WordPress webapp and create a Gatsby page for each one
+  webapps.forEach(webapp => {
+    actions.createPage({
+      path: webapp.uri,
+      component: require.resolve("./src/templates/webapp-template.js"),
+      context: {
+        id: webapp.id,
       },
     })
   })

@@ -1,29 +1,86 @@
 html,
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: "Open Sans", Arial;
+  overflow-x: hidden;
 }
 
-header {
-  background: darkblue;
-  padding: 1rem 5vw;
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #a98c2c;
+  padding-bottom: 5px;
+}
+
+h1 {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  margin-bottom: 25px;
+  font-family: "Montserrat";
+}
+
+h2 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+p {
+  margin-bottom: 3rem;
+}
+
+main a {
+  color: #a98c2c;
+  text-decoration: underline;
+}
+
+main a:hover {
+  color: #e6edf5;
 }
 
 header a {
-  color: white;
+  color: #a98c2c;
   display: inline-block;
   margin-left: 0.75rem;
+  margin: 0;
+}
+
+header a.home {
+  font-family: "Montserrat", Arial;
+}
+
+header .menu a:hover {
+  color: #e6edf5;
 }
 
 header .home {
-  font-weight: 800;
-  margin-left: 0;
-  text-decoration: none;
+  font-family: "Montserrat";
+  border-color: #a98c2c;
 }
 
-main {
-  margin: 2rem auto;
-  max-width: 54ch;
-  width: 90vw;
+@media (max-width: 599px) {
+  .wp-block-columns {
+    margin-bottom: 0;
+  }
+  .wp-block-image {
+    margin-bottom: 2.25rem;
+  }
+}
+
+.wp-block-column .wp-block-image a img,
+.img-hover {
+  -webkit-box-shadow: 0 0 8px 0 #aaa;
+  box-shadow: 0 0 8px 0 #aaa;
+  transition-duration: 500ms;
+}
+
+.wp-block-column .wp-block-image a img:hover,
+.img-hover:hover {
+  transform: scale(1.15);
+}
+
+.web-development .wp-block-column .wp-block-image a img {
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
