@@ -3,7 +3,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const result = await graphql(`
     {
       wpgraphql {
-        pages {
+        pages(first: 99) {
           nodes {
             id
             uri
@@ -16,7 +16,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const kiosk_result = await graphql(`
     {
       wpgraphql {
-        kiosks {
+        kiosks(first: 99) {
           nodes {
             id
             uri
@@ -29,7 +29,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const website_result = await graphql(`
     {
       wpgraphql {
-        websites {
+        websites(first: 99) {
           nodes {
             id
             uri
@@ -42,7 +42,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const webapps_result = await graphql(`
     {
       wpgraphql {
-        webapps {
+        webapps(first: 99) {
           nodes {
             id
             uri
