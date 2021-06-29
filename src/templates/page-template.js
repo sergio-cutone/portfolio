@@ -27,6 +27,20 @@ const PageTemplate = ({ data }) => {
       let response = await fetch(urlEndpoint)
       response = await response.json()
       imagesState(response)
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault()
+          const headerHeight = document.getElementsByTagName("header")[0]
+          const offsetTop =
+            document.querySelector(this.getAttribute("href")).offsetTop -
+            (headerHeight.offsetHeight + 20)
+          console.log(offsetTop, headerHeight)
+          window.scroll({
+            top: offsetTop,
+            behavior: "smooth",
+          })
+        })
+      })
     }
     fetchImages()
   }, [urlEndpoint])

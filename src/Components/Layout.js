@@ -30,7 +30,6 @@ const Layout = ({ children }) => {
   `)
 
   const { title, url } = menu.wpgraphql.generalSettings
-  // loop through the menu items and make the links relative
   const items = menu.wpgraphql.menu.menuItems.nodes.map(item => ({
     ...item,
     url: item.url.replace(url, ""),

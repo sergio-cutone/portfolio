@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../Components/Layout"
 import "@wordpress/block-library/build-style/style.css"
@@ -17,17 +17,6 @@ export const query = graphql`
 
 const WebappTemplate = ({ data }) => {
   const webapp = data.wpgraphql.webapp
-  //   const urlEndpoint = `https://demos.sergiocutone.com/api/imagekit?websites/${webapp.slug}`
-  //   const [images, imagesState] = useState([])
-
-  //   useEffect(() => {
-  //     async function fetchImages() {
-  //       let response = await fetch(urlEndpoint)
-  //       response = await response.json()
-  //       imagesState(response)
-  //     }
-  //     fetchImages()
-  //   }, [urlEndpoint])
   return (
     <>
       <Layout>
