@@ -14,6 +14,7 @@ module.exports = {
         typeName: "WPGraphQL",
         fieldName: "wpgraphql",
         url: "https://gatsby.sergiocutone.com/graphql",
+        icon: "src/img/favicon.jpg",
       },
     },
   ],
