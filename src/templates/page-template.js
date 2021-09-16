@@ -5,6 +5,7 @@ import { SRLWrapper } from "simple-react-lightbox"
 import Images from "../Components/Images"
 import "@wordpress/block-library/build-style/style.css"
 import "../styles/layout.css"
+import { Helmet } from "react-helmet"
 export const query = graphql`
   query($id: ID!) {
     wpgraphql {
@@ -42,10 +43,18 @@ const PageTemplate = ({ data }) => {
         })
       })
     }
-    fetchImages()
+    page.slug === "websites" && fetchImages()
   }, [urlEndpoint])
   return (
     <>
+      <Helmet>
+        <html lang="en" />
+        <title>{page.title}</title>
+        <meta
+          name="description"
+          content="Sergio Cutone - Senior Web Developer"
+        />
+      </Helmet>
       <Layout>
         <div className={page.slug}>
           <h1
@@ -53,7 +62,7 @@ const PageTemplate = ({ data }) => {
             dangerouslySetInnerHTML={{ __html: page.title }}
           ></h1>
           <div dangerouslySetInnerHTML={{ __html: page.content }} />
-          {page.slug === "web-development" && (
+          {page.slug === "websites" && (
             <SRLWrapper>
               <div className="masonry before:box-inherit after:box-inherit">
                 <Images images={images} />
