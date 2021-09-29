@@ -10,7 +10,16 @@ const Footer = () => {
   const year = date.getFullYear()
   return (
     <div className="px-4 py-8 text-center border-t border-gray-500">
-      {year} Sergio Cutone
+      <div className="font-bold">
+        ©{year} Sergio Cutone |{" "}
+        <a
+          href="https://www.linkedin.com/in/sergio-cutone-38010757"
+          target="_blank"
+          className="hover:text-gray-300"
+        >
+          LinkedIn
+        </a>
+      </div>
       <div className="text-center">
         <img
           src={wordpress}
