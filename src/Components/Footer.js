@@ -4,6 +4,7 @@ import gatsby from "../img/gatsby.png"
 import tailwindcss from "../img/tailwindcss.png"
 import python from "../img/python.png"
 import imagekit from "../img/imagekit.png"
+import netlify from "../img/netlify.png"
 
 const Footer = () => {
   const date = new Date()
@@ -21,13 +22,19 @@ const Footer = () => {
         </a>
       </div>
       <div className="text-center">
+        <img src={gatsby} alt="Gatsby" title="Gatsby" className="inline h-10" />
         <img
           src={wordpress}
           alt="Wordpress"
           title="Wordpress"
           className="inline h-10"
         />
-        <img src={gatsby} alt="Gatsby" title="Gatsby" className="inline h-10" />
+        <img
+          src={netlify}
+          alt="Netlify"
+          title="Netlify"
+          className="inline h-10"
+        />
         <img
           src={tailwindcss}
           alt="Tailwind CSS"
