@@ -49,9 +49,9 @@ const WebsiteTemplate = ({ data }) => {
             </div>
           )}
           {images.map(
-            e =>
+            (e, i) =>
               e.slug === website.slug && (
-                <div className="text-center">
+                <div className="text-center" key={`image-${i}`}>
                   <img
                     src={e.title_img}
                     alt="Main"

@@ -44,7 +44,7 @@ const PageTemplate = ({ data }) => {
       })
     }
     page.slug === "websites" && fetchImages()
-  }, [urlEndpoint])
+  }, [urlEndpoint, page.slug])
   return (
     <>
       <Helmet>

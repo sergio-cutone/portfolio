@@ -5,7 +5,7 @@ const Kiosks = () => {
   const query = useStaticQuery(graphql`
     {
       wpgraphql {
-        kiosks {
+        kiosks(first: 99) {
           nodes {
             title
             uri
@@ -16,7 +16,6 @@ const Kiosks = () => {
   `)
   const kiosks = query.wpgraphql.kiosks.nodes
   const handleChange = event => {
-    console.log(event.target.value)
     if (event.target.value) window.location.href = event.target.value
   }
   return (
@@ -26,11 +25,13 @@ const Kiosks = () => {
         className="w-24 p-1 -mt-2 border-b border-black"
       >
         <option value="">Jump to</option>
-        {kiosks.map((e, i) => (
-          <option value={e.uri} key={i}>
-            {e.title}
-          </option>
-        ))}
+        {kiosks
+          .sort((a, b) => (a.title > b.title ? 1 : -1))
+          .map((e, i) => (
+            <option value={e.uri} key={`kiosk-${i}`}>
+              {e.title}
+            </option>
+          ))}
       </select>
     </>
   )

@@ -17,6 +17,7 @@ const Footer = () => {
           href="https://www.linkedin.com/in/sergio-cutone-38010757"
           target="_blank"
           className="hover:text-gray-300"
+          rel="noreferrer"
         >
           LinkedIn
         </a>

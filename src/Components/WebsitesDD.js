@@ -5,7 +5,7 @@ const Websites = () => {
   const query = useStaticQuery(graphql`
     {
       wpgraphql {
-        websites {
+        websites(first: 99) {
           nodes {
             title
             uri
@@ -25,11 +25,13 @@ const Websites = () => {
         className="w-24 p-1 -mt-2 border-b border-black"
       >
         <option value="">Jump to</option>
-        {websites.map((e, i) => (
-          <option value={e.uri} key={i}>
-            {e.title}
-          </option>
-        ))}
+        {websites
+          .sort((a, b) => (a.title > b.title ? 1 : -1))
+          .map((e, i) => (
+            <option value={e.uri} key={`website-${i}`}>
+              {e.title}
+            </option>
+          ))}
       </select>
     </>
   )
